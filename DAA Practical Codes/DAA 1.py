@@ -1,6 +1,3 @@
-import time
-import sys
-
 # Recursive Fibonacci
 def fibonacci_recursive(n):
     if n <= 1:
@@ -19,38 +16,26 @@ def fibonacci_iterative(n):
     return result
 
 
-# Recursive version (with time and memory)
-def recursive_analysis(n):
-    start_time = time.time()
-    result = []
+# Recursive version (prints series and nth Fibonacci number)
+def recursive_series_and_number(n):
+    series = []
     for i in range(n):
-        result.append(fibonacci_recursive(i))
-    end_time = time.time()
-    total_time = end_time - start_time
-    mem_usage = sys.getsizeof(result)
-
+        series.append(fibonacci_recursive(i))
     print("\nRecursive Fibonacci Series:")
-    print(result)
-    print(f"Time Taken: {total_time:.6f} seconds")
-    print(f"Approx. Memory Used: {mem_usage} bytes")
+    print(series)
+    print(f"Recursive {n}th Fibonacci Number: {series[-1]}")
 
 
-# Iterative version (with time and memory)
-def iterative_analysis(n):
-    start_time = time.time()
-    result = fibonacci_iterative(n)
-    end_time = time.time()
-    total_time = end_time - start_time
-    mem_usage = sys.getsizeof(result)
-
+# Iterative version (prints series and nth Fibonacci number)
+def iterative_series_and_number(n):
+    series = fibonacci_iterative(n)
     print("\nIterative Fibonacci Series:")
-    print(result)
-    print(f"Time Taken: {total_time:.6f} seconds")
-    print(f"Approx. Memory Used: {mem_usage} bytes")
+    print(series)
+    print(f"Iterative {n}th Fibonacci Number: {series[-1]}")
 
 
 # Main Program
 n = int(input("Enter the number of terms: "))
 
-iterative_analysis(n)
-recursive_analysis(n)
+iterative_series_and_number(n)
+recursive_series_and_number(n)
